@@ -53,4 +53,19 @@ class PracticeTests extends FunSuite {
     */
 
   // write your tests here
+  test("not a weekday, not on vacation"){
+    assert(Practice.sleepin(false,false) === true)
+  }
+
+  test("not a weekday, but on vacation"){
+    assert(Practice.sleepin(true,false) === false)
+  }
+
+  test("is a weekday, but not on vacation"){
+    assert(Practice.sleepin(false,true) === true)
+  }
+
+  test("both a weekday and on vacation"){
+    assert(Practice.sleepin(true,true) === true)
+  }
 }

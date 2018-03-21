@@ -17,4 +17,10 @@ object Practice {
     * we're on vacation.
     */
   // replace this comment with your implementation of sleepIn
+  def sleepin(weekday: Boolean, vacation: Boolean): Boolean ={
+    if(!weekday||vacation){
+    return true
+    }
+    return false
+  }
 }
