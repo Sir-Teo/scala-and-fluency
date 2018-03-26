@@ -19,7 +19,7 @@ object PictureProgram extends App {
   Picture.flipHorizontal(picture)
   Picture.grayScale(picture)
   Picture.rotateLeft(picture)
-  Picture.saveImage(picture,"try.png")
+  Picture.saveImage(picture,"tryagain.png")
 
 
 
