@@ -7,5 +7,4 @@ object PracticeProgram extends App {
   val inputNumber = scala.io.StdIn.readInt()
   val result = square(inputNumber)
   println(s"The square of ${inputNumber} is ${result}")
-  89
 }

@@ -83,7 +83,6 @@ object Picture {
 
     saveImage(result, outputFilename)
   }
-
   /** Coverts an image to grayscale */
   def grayScale(inputFilename: String, outputFilename: String): Boolean = {
     val image = loadImage(inputFilename)
@@ -108,7 +107,80 @@ object Picture {
 
     saveImage(result, outputFilename)
   }
+/**********************************************************************************************/
+  //changes starts here
+  def flipHorizontal(image:BufferedImage): Unit = {
 
+    // create a new, empty image to copy pixels into
+    val width = image.getWidth
+    val height = image.getHeight
+    val imageType = image.getType
+    val result = new BufferedImage(width, height, imageType)
+
+    // copy the pixels over, column-by-column, from right to left
+    for (column <- 0 until width)
+      for (row <- 0 until height)
+        result.setRGB(column, row, image.getRGB(width - column - 1, row))
+  }
+
+  def grayScale(image: BufferedImage): Unit = {
+    // create a new, empty image to copy pixels into
+    val width = image.getWidth
+    val height = image.getHeight
+    val imageType = image.getType
+    val result = new BufferedImage(width, height, imageType)
+
+    // copy the pixels over, column-by-column, grayscaling each pixel
+    for (column <- 0 until width)
+      for (row <- 0 until height) {
+        // grayscale the pixel by taking the average of the red, green, and
+        // blue parts of the pixel
+        val pixel = new Color(image.getRGB(column, row))
+        val gray: Int =
+          Math.round((pixel.getRed + pixel.getGreen + pixel.getBlue) / 3f)
+        val newPixel = new Color(gray, gray, gray)
+        result.setRGB(column, row, newPixel.getRGB)
+      }
+  }
+
+  def rotateLeft(image:BufferedImage): Unit = {
+    // create a new, empty image to copy pixels into
+    val width = image.getHeight
+    val height = image.getWidth
+    val imageType = image.getType
+    val result = new BufferedImage(width, height, imageType)
+
+    // copy the pixels over, column-by-column, while rotating
+    for (column <- 0 until width)
+      for (row <- 0 until height)
+        result.setRGB(column, row, image.getRGB(height - row - 1, column))
+  }
+
+  def flipVertical(image: BufferedImage): Unit = {
+    // create a new, empty image to copy pixels into
+    val width = image.getWidth
+    val height = image.getHeight
+    val imageType = image.getType
+    val result = new BufferedImage(width, height, imageType)
+
+    // copy the pixels over, column-by-column, from top to bottom
+    for (column <- 0 until width)
+      for (row <- 0 until height)
+        result.setRGB(column, row, image.getRGB(column, height - row - 1))
+  }
+
+  def rotateRight(image:BufferedImage): Unit = {
+    // create a new, empty image to copy pixels into
+    val width = image.getHeight
+    val height = image.getWidth
+    val imageType = image.getType
+    val result = new BufferedImage(width, height, imageType)
+
+    // copy the pixels over, column-by-column, while rotating
+    for (column <- 0 until width)
+      for (row <- 0 until height)
+        result.setRGB(column, row, image.getRGB(row, width - column - 1))
+  }
   /*****************************************************************************
     * Helper functions
     *
@@ -158,5 +230,6 @@ object Picture {
   def saveImage(image: BufferedImage, filename: String,
                 format: String = "png"): Boolean = {
     ImageIO.write(image, format, new File(filename))
+
   }
 }
