@@ -109,7 +109,7 @@ object Picture {
   }
 /**********************************************************************************************/
   //changes starts here
-  def flipHorizontal(image:BufferedImage): Unit = {
+  def flipHorizontal(image:BufferedImage): BufferedImage = {
 
     // create a new, empty image to copy pixels into
     val width = image.getWidth
@@ -121,9 +121,10 @@ object Picture {
     for (column <- 0 until width)
       for (row <- 0 until height)
         result.setRGB(column, row, image.getRGB(width - column - 1, row))
+    result
   }
 
-  def grayScale(image: BufferedImage): Unit = {
+  def grayScale(image: BufferedImage): BufferedImage = {
     // create a new, empty image to copy pixels into
     val width = image.getWidth
     val height = image.getHeight
@@ -141,9 +142,10 @@ object Picture {
         val newPixel = new Color(gray, gray, gray)
         result.setRGB(column, row, newPixel.getRGB)
       }
+    result
   }
 
-  def rotateLeft(image:BufferedImage): Unit = {
+  def rotateLeft(image:BufferedImage): BufferedImage = {
     // create a new, empty image to copy pixels into
     val width = image.getHeight
     val height = image.getWidth
@@ -154,9 +156,10 @@ object Picture {
     for (column <- 0 until width)
       for (row <- 0 until height)
         result.setRGB(column, row, image.getRGB(height - row - 1, column))
+    result
   }
 
-  def flipVertical(image: BufferedImage): Unit = {
+  def flipVertical(image: BufferedImage): BufferedImage = {
     // create a new, empty image to copy pixels into
     val width = image.getWidth
     val height = image.getHeight
@@ -167,9 +170,10 @@ object Picture {
     for (column <- 0 until width)
       for (row <- 0 until height)
         result.setRGB(column, row, image.getRGB(column, height - row - 1))
+    result
   }
 
-  def rotateRight(image:BufferedImage): Unit = {
+  def rotateRight(image:BufferedImage): BufferedImage = {
     // create a new, empty image to copy pixels into
     val width = image.getHeight
     val height = image.getWidth
@@ -180,6 +184,7 @@ object Picture {
     for (column <- 0 until width)
       for (row <- 0 until height)
         result.setRGB(column, row, image.getRGB(row, width - column - 1))
+    result
   }
   /*****************************************************************************
     * Helper functions
