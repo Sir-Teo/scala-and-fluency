@@ -17,7 +17,7 @@ One thing annoying is that I have to repeat the name of the object everytime I c
   It is also quite annoying to load the picture by calling```loadImage(resource("/image.png"))```. The user of this program might be confused with this feature.
 
 
-###Critique of Eesha Agarwal's code:
+### Critique of Eesha Agarwal's code:
 
 You did a great job in implementing the ```Square```,```Repeat``` and ```SleepIn``` function. Your response is mostly the same as mine. And the tests you added to test the 
 ```SleepIn``` function are complete and correct. 
