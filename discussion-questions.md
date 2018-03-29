@@ -8,8 +8,8 @@ Adding fluency to the picture program and practicing scala functions is quite ea
 # Discussion questions / topics
 Below, add one or two things that you might want to discuss when we meet again.
 
--we can talk more about implementing a DSL
+-we can talk more about how to implement a DSL. Are we doing a DSL in modifying the Picture program?
 
--more practise in using Scala
+-more practise in using Scala. I still don't feel comfortable in using Scala. I definitely need more practise in it. 
 
--explain more about "fluency"
+-explain more about "fluency". Does "fluency" means making the program shorter? or it means to make the program easier to read?
