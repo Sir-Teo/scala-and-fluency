@@ -7,7 +7,8 @@ Is there anything that is still annoying or difficult about the operations we
 have in the library (i.e., flipping, rotating, and grayscaling)?
 
 One thing annoying is that I have to repeat the name of the object everytime I call into use a method. For example
-```Picture.flipHorizontal(picture)
+```scala
+  Picture.flipHorizontal(picture)
   Picture.grayScale(picture)
   Picture.rotateLeft(picture)
   Picture.saveImage(picture,"tryagain.png")
